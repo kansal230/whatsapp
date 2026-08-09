@@ -17,7 +17,7 @@ uploaded_file = st.sidebar.file_uploader('choose a file')
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
     data = bytes_data.decode('utf-8')
-    print(data)
+    st.text(data)
 
 """To run a Streamlit application, you typically execute a shell command. Based on the output from your previous cell, you can run your Streamlit app using the following command in a new code cell:"""
 
