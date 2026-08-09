@@ -15,43 +15,7 @@ st.sidebar.title('whatsapp chat analyser')
 
 """To run a Streamlit application, you typically execute a shell command. Based on the output from your previous cell, you can run your Streamlit app using the following command in a new code cell:"""
 
-!streamlit run /whatsapp/preprocessor.py
 
-"""### Committing Code to GitHub from Colab
-
-1.  **Generate a Personal Access Token (PAT) on GitHub**: You'll need this to authenticate. Go to GitHub -> Settings -> Developer settings -> Personal access tokens -> Tokens (classic) -> Generate new token. Give it a descriptive name and select the `repo` scope.
-2.  **Clone your repository**: If you haven't already, clone your GitHub repository into your Colab environment.
-3.  **Configure Git**: Set your user name and email.
-4.  **Add, Commit, and Push**: Use standard Git commands to stage your changes, commit them, and push them to your remote repository.
-"""
-
-# Replace 'YOUR_PAT' with your GitHub Personal Access Token
-# Replace 'YOUR_USERNAME' with your GitHub username
-# Replace 'YOUR_REPO' with your repository name
-# Replace 'YOUR_BRANCH' with your branch name (e.g., 'main' or 'master')
-
-# Step 1: Clone your repository (if you haven't already)
-# !git clone https://YOUR_USERNAME:YOUR_PAT@github.com/YOUR_USERNAME/YOUR_REPO.git
-
-# Navigate into your repository directory (if you cloned it)
-# %cd YOUR_REPO
-
-# Step 2: Configure Git
-!git config user.name 'Your Name'
-!git config user.email 'your_email@example.com'
-
-# Step 3: Add your changes
-!git add .
-
-# Step 4: Commit your changes
-!git commit -m 'Descriptive commit message'
-
-# Step 5: Push your changes to GitHub
-# You might need to specify the remote and branch for the first push
-# !git push -u origin YOUR_BRANCH
-
-# Or, for subsequent pushes:
-# !git push
 
 print("Git operations completed. Please check your GitHub repository.")
 
