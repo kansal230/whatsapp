@@ -7,6 +7,9 @@ Original file is located at
     https://colab.research.google.com/drive/15Gl714nTAEftSWXJskzD2u9R2wtTtcre
 """
 
+import re
+import pandas as pd
+
 def preprocessor(data):
   # Define the pattern as a raw string for regular expressions
   # Updated pattern to include date, seconds, and correct AM/PM and non-breaking space character
@@ -16,12 +19,11 @@ def preprocessor(data):
   df = pd.DataFrame({'user_message': messages, 'message_date': dates})
   df['message_date'] = pd.to_datetime(df['message_date'], format='[%d/%m/%y, %I:%M:%S %p]')
   df.rename(columns={'message_date': 'date'}, inplace=True)
-  df.drop(columns=['user_message'], inplace=True)
   #seperate users and messages
   users = []
   messages = []
   for message in df['user_message']:
-      entry = re.split('([\w\W]+?):\s', message)
+      entry = re.split(r'([\w\W]+?):\s', message)
       if entry[1:]:  # user name
           users.append(entry[1])
           messages.append(" ".join(entry[2:]))
@@ -37,11 +39,12 @@ def preprocessor(data):
   df['only_date'] = df['date'].dt.date
   df['year'] = df['date'].dt.year
   df['month_num'] = df['date'].dt.month
-  df['month'] = df['date'].dt.month_name
+  df['month'] = df['date'].dt.month_name()
   df['minute'] = df['date'].dt.minute
   df['second'] = df['date'].dt.second
   df['day'] = df['date'].dt.day_name()
 
+  return df
 
 
 
