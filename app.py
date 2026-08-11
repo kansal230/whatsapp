@@ -19,22 +19,11 @@ if uploaded_file is not None:
     data = bytes_data.decode('utf-8')
     df = preprocessor.preprocessor(data)
     st.dataframe(df)
-    #fetch unique user
-    user_list = df['user'].unique().tolist()
-    user_list.sort()
-    user_list.insert(0,'Overall')
-    st.sidebar.selectbox('show analysis wrt',user_list)
-
-    if st.sidebar.button('show analysis'):
-      pass
-
     
-
     #fetch unique user
     user_list = df['user'].unique().tolist()
     user_list.sort()
     user_list.insert(0,'Overall')
-    st.sidebar.selectbox('show analysis wrt',user_list)
     selected_user = st.sidebar.selectbox('show analysis wrt',user_list)
 
     if st.sidebar.button('show analysis'):
