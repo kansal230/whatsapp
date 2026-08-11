@@ -10,7 +10,7 @@ Original file is located at
 
 
 import streamlit as st
-import preprocessor
+import preprocessor , helper
 
 st.sidebar.title('whatsapp chat analyser')
 uploaded_file = st.sidebar.file_uploader('choose a file')
