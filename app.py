@@ -27,24 +27,13 @@ if uploaded_file is not None:
     selected_user = st.sidebar.selectbox('show analysis wrt',user_list)
 
     if st.sidebar.button('show analysis'):
-      num_messages = helper.fetch_stats(selected_user,df)
+      num_messages, words = helper.fetch_stats(selected_user,df)
 
       col1, col2, col3, col4 = st.columns(4)
 
       with col1:
         st.header('total messages')
         st.title(num_messages)
-"""To run a Streamlit application, you typically execute a shell command. Based on the output from your previous cell, you can run your Streamlit app using the following command in a new code cell:"""
-
-
-
-print("Git operations completed. Please check your GitHub repository.")
-
-"""**Important Considerations:**
-
-*   **Security**: Be cautious about hardcoding your PAT directly in the notebook. For more secure handling, consider using Colab's secret manager, or pass it as an environment variable.
-*   **Existing Repository**: If you've already cloned your repository, skip the `git clone` command. The `%cd` command is important to navigate into the cloned directory before running other git commands.
-*   **Fresh Environment**: Each time your Colab runtime restarts, you'll lose the cloned repository. You'll need to clone it again. Only the files saved to Google Drive or other external storage will persist.
-
-After running the cell above, a local URL should appear in the output, which you can click to view your Streamlit application in a new browser tab.
-"""
+      with col1:
+        st.header('total words')
+        st.title(words)
