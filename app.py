@@ -25,7 +25,6 @@ if uploaded_file is not None:
     user_list.sort()
     user_list.insert(0,'Overall')
     st.sidebar.selectbox('show analysis wrt',user_list)
-    selected_user = st.sidebar.selectbox('show analysis wrt',user_list)
 
     if st.sidebar.button('show analysis'):
       pass
