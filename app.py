@@ -22,10 +22,11 @@ if uploaded_file is not None:
     st.dataframe(df)
     #fetch unique user
     user_list = df['user'].unique().tolist()
-
-    st.sidebar.selectbox('show analysis wrt',user_list)
     user_list.sort()
     user_list.insert(0,'Overall')
+
+    st.sidebar.selectbox('show analysis wrt',user_list)
+    
 
 """To run a Streamlit application, you typically execute a shell command. Based on the output from your previous cell, you can run your Streamlit app using the following command in a new code cell:"""
 
